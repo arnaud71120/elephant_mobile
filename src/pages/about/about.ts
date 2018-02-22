@@ -26,6 +26,9 @@ export class AboutPage {
     this.semaine = [];
       this.loadUser();
   }
+  itemSelected(data){
+    console.log(data);
+  }
   loadUser(){
     console.log('loadUser');
     this.storage.get('userInfos').then((value) => {
@@ -36,11 +39,13 @@ export class AboutPage {
   ).then(() => {
     this.authService.loadSemaine(this.userDetails).then((result) => {
       Object.keys(result).forEach(key=> {
-        console.log(result['data'][key]);
-        this.semaine.push(result['data'][key]);
-        console.log(result[key])  ;
-        } );
+        Object.keys(result[key]).forEach(key2=> {
+          console.log(result[key][key2]);
+        this.semaine.push(result[key][key2]);
         console.log(this.semaine);
+          } );
+        } );
+
     })
   });
   }
