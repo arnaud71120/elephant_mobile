@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+  <ion-row>
+    <ion-col style="margin: auto">
+    <ion-title>About</ion-title>
+  </ion-col>
+<ion-col style="text-align: right">
+    <button ion-button (click)="logout()"><ion-icon style="right: 0px;" name="log-out"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item *ngFor="let data of semaine">
+    <ion-item text-wrap>
+     <ion-icon name="map" item-left large></ion-icon>
+  <h2>{{data}}</h2>
+  </ion-item>
+
+  </ion-item>
+</ion-content>

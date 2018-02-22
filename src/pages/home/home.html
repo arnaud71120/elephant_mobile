@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+  <ion-row>
+    <ion-col style="margin: auto">
+    <ion-title>Chantier affectés</ion-title>
+  </ion-col>
+<ion-col style="text-align: right">
+    <button ion-button (click)="logout()"><ion-icon style="right: 0px;" name="log-out"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Bonjour {{userDetails.prenom}} {{userDetails.nom}}</h2>
+<p>
+  Voici la liste de tes derniers chantiers affectés
+</p>
+<ion-item *ngFor="let tab of chantier">
+<ion-card (click)="maps(tab.adresse_client)">
+  <ion-item  text-wrap>
+   <ion-icon name="arrow-dropright" item-left large></ion-icon>
+<h2>{{tab.numero}} : {{tab.nom_client}}-{{tab.intitule}}</h2>
+</ion-item>
+  <ion-item text-wrap>
+   <ion-icon name="briefcase" item-left large></ion-icon>
+<h2>{{tab.nom_client}}</h2>
+</ion-item>
+  <ion-item text-wrap>
+   <ion-icon name="time" item-left large></ion-icon>
+<h2>{{tab.texte}}</h2>
+</ion-item>
+  <ion-item text-wrap>
+   <ion-icon name="map" item-left large></ion-icon>
+<h2>{{tab.adresse_client}}</h2>
+</ion-item>
+</ion-card>
+</ion-item>
+</ion-content>
